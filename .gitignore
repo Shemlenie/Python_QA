@@ -2,12 +2,5 @@
 .pytest_cache
 hello_world.py
 README.md
-__pycache__
-test/
-books-133064-871075.csv
-users-39204-8e2f95.json
-Circle.py
-Figure.py
-Rectangle.py
-Square.py
-Triangle.py
+src/books-133064-871075.csv
+src/users-39204-8e2f95.json
