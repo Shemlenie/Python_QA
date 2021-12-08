@@ -13,7 +13,7 @@ with open("books-133064-871075.csv", newline='') as file:
         temp_book = {
             'title': row['Title'],
             'author': row['Author'],
-            'pages': row['Pages'],
+            'pages': int(row['Pages']),
             'genre': row['Genre']
         }
         books_list.append(temp_book)
