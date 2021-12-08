@@ -1,0 +1,5 @@
+.idea
+.pytest_cache
+src/__pycache__
+src/books-133064-871075.csv
+src/users-39204-8e2f95.json
