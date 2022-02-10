@@ -16,24 +16,16 @@ def pytest_addoption(parser):
         help="Status code"
     )
 
-    # parser.addoption(
-    #     "--method",
-    #     default="get",
-    #     choices=["get", "post", "put", "patch", "delete"],
-    #     help="Method to execute"
-    # )
 
 @pytest.fixture
 def base_url(request):
     return request.config.getoption("--url")
 
+
 @pytest.fixture
 def status(request):
     return request.config.getoption("--status_code")
 
-# @pytest.fixture
-# def request_method(request):
-#     return getattr(requests, request.config.getoption("--method"))
 
 def test_url_status(base_url, status):
     response = requests.get(url=base_url)

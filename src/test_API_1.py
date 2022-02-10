@@ -4,8 +4,8 @@ import json
 import conftest
 import cerberus
 
-@pytest.mark.parametrize("url, status",[
-    ("https://dog.ceo/dog-api/", 200),
+
+@pytest.mark.parametrize("url, status", [
     ("https://dog.ceo/api/breeds/list/all", 200),
     ("https://dog.ceo/dog-api/documentation/random", 200),
     ("https://dog.ceo/dog-api/documentation/breed", 200),
@@ -15,10 +15,12 @@ import cerberus
 def test_status_1(url, status):
     return conftest.test_url_status(url, status)
 
+
 def test_status_2(base_url, status):
     return conftest.test_url_status("https://dog.ceo/dog-api/1231231", 404)
 
-@pytest.mark.parametrize("url, schema",[
+
+@pytest.mark.parametrize("url, schema", [
     ("https://dog.ceo/api/breed/hound/list", {
         "message": {"type": "list"},
         "status": {"type": "string"}
@@ -36,12 +38,13 @@ def test_status_2(base_url, status):
         "status": {"type": "string"}
     }),
 ])
-def test_scheme(url, schema):
+def test_schema(url, schema):
     res = requests.get(url)
 
     v = cerberus.Validator()
 
     assert v.validate(res.json(), schema)
+
 
 def test_json_1():
     res = requests.get("https://dog.ceo/api/breed/hound/list")
@@ -60,6 +63,7 @@ def test_json_1():
     }
 
     assert res.json() == expected_json
+
 
 def test_json_2():
     res = requests.get("https://dog.ceo/api/breed/hound/images")
