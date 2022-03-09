@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def test_admin(browser, url):
+def test_register(browser, url):
     browser.get(url + "/index.php?route=account/register")
     wait = WebDriverWait(browser, 10)
     wait.until(EC.title_is("Register Account"))
